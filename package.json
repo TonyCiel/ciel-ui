@@ -13,7 +13,7 @@
   "scripts": {
     "build": "webpack --config build/webpack.prod.conf.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.js",
-    "dist": "webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js"
+    "lib": "webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js"
   },
   "faas": [
     {
