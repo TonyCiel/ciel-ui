@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
 		<section class="app-main">
-			<left-nav></left-nav>
-			<div class="app-content wt-scroll"><router-view></router-view></div>
+			<left-nav @change="scrollContent"></left-nav>
+			<div class="app-content wt-scroll" id="mAppContent"><router-view></router-view></div>
 		</section>
 	</div>
 </template>
@@ -16,6 +16,12 @@ export default {
 	},
 	mounted() {
 		document.body.style.setProperty('--maincolor', '#409eff');
+	},
+	methods: {
+		scrollContent() {
+			let el = document.getElementById('mAppContent');
+			el.scrollTop = 0;
+		},
 	}
 };
 </script>

@@ -3,7 +3,7 @@
 		<nav class="nav-item" v-show="isDev ? true : !item.isTest" v-for="(item, index) in routeList" :key="index">
 			<p class="nav-item-name">{{ item.name }}</p>
 			<ul class="nav-item-children">
-				<li @click="$router.push(route.path)" v-for="route in item.children" :class="{ 'nav-item-check': $route.name == route.name }" :key="route.title">
+				<li @click="selectItem(route)" v-for="route in item.children" :class="{ 'nav-item-check': $route.name == route.name }" :key="route.title">
 					{{ route.title }}
 				</li>
 			</ul>
@@ -21,6 +21,15 @@ export default {
 			isCheck: this.$route.name,
 			isDev: process.env.NODE_ENV == 'development' ? true : false, // 是否是测试环境
 		};
+	},
+	methods: {
+		selectItem(route) {
+			if(this.$route.name == route.name) {
+				return;
+			}
+			this.$emit('change');
+			this.$router.push(route.path);
+		}
 	},
 	mounted() {
 		console.log(this.routeList);
