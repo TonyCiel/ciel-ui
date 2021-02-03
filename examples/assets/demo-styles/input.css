@@ -1,0 +1,10 @@
+.demo-input  {
+	width: 220px;
+	margin-right: 10px;
+}
+.demo-input-list {
+	display: flex;
+}
+.demo-ciel-input {
+	margin-top: 10px;
+}

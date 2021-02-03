@@ -1,0 +1,147 @@
+.ciel_msgview {
+	background-color: black;
+	position: fixed;
+	top: 50%;
+	left: 0%;
+	border-radius: 3px;
+	background-color: rgba(0, 0, 0, 0.7);
+	max-width: 80%;
+	z-index: 99999;
+	opacity: 0;
+	transition: transform 0.2s, opacity 0.2s;
+	height: unset !important;
+	word-break: break-all;
+	transform: scale(0.8, 0.8);
+}
+
+.ciel_msgview._ourlinc_msgbody_show {
+	opacity: 1;
+	transform: scale(1, 1);
+}
+
+.ciel_msgview.nopointerEvents {
+	pointer-Events: none;
+}
+
+.ciel_msgview.info {
+	padding: 5px;
+}
+
+.ciel_msgview.loading,
+.ciel_msgview {
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.ciel_msgview_loading {
+	display: none;
+}
+
+.ciel_msgview.success .ciel_msgview_loading:before {
+	content: "\e62e";
+}
+
+.ciel_msgview.warn .ciel_msgview_loading:before {
+	content: "\e65f";
+}
+
+.ciel_msgview.error .ciel_msgview_loading:before {
+	content: "\e681";
+}
+
+.ciel_msgview.iconable .ciel_msgview_loading:before {
+	font-family: "iconfont" !important;
+	font-size: 50px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	line-height: 1.7;
+	color: white;
+	text-align: center;
+}
+
+.ciel_msgview.iconable .ciel_msgview_loading {
+	height: 90px;
+}
+
+.ciel_msgview.loading .ciel_msgview_loading {
+	height: 110px;
+}
+
+.ciel_msgview.loading .ciel_msgview_loading,
+.ciel_msgview.iconable .ciel_msgview_loading {
+	position: relative;
+	display: block;
+}
+
+.ciel_msgview_loading div {
+	width: 3px;
+	height: 9px;
+	background-color: white;
+	position: absolute;
+	left: 55px;
+	top: 35px;
+	opacity: 0;
+	border-radius: 3px;
+	animation: loading_fade 1s linear infinite;
+}
+
+@keyframes loading_fade {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0.25;
+	}
+}
+
+@keyframes loading_fade {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0.25;
+	}
+}
+
+.ciel_msgview.iconable .ciel_msgview_msg {
+	min-width: 110px;
+	max-width: 130px;
+	margin-top: -10px;
+	line-height: 1.3;
+}
+
+.ciel_msgview.loading .ciel_msgview_msg {
+	width: 110px;
+	padding: 0;
+	margin-top: -33px;
+	margin-bottom: 17px;
+	text-align: center;
+	height: 16px;
+	box-sizing: border-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 1;
+}
+
+.ciel_msgview .ciel_msgview_msg {
+	color: #f7f7f7;
+	text-align: justify;
+	font-size: 15px;
+	padding: 3px 10px;
+	font-size: 14px;
+}
+
+.iconable .ciel_msgview_msg {
+	text-align: center;
+	padding: 5px 3px 15px 3px;
+}

@@ -1,0 +1,277 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent;
+
+	&.is-component {
+		overflow: hidden;
+	}
+}
+/**滚动条*/
+
+
+::-webkit-scrollbar {
+	width: 9px;
+	height: 9px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 8px;
+	background-color: rgba(0, 0, 0, 0)
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: -2px 0 0 #fff inset, 1px 0 0 #fff inset, 0 -1px 0 rgba(255, 255, 255, 0.9) inset, 0 1px 0 rgba(255, 255, 255, 0.9) inset
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(0, 0, 0, 0.2)
+}
+
+::-webkit-scrollbar-thumb:active {
+	background: rgba(0, 0, 0, 0.4)
+}
+.content>h2 {
+	font-weight: 400;
+	color: #1f2f3d;
+}
+
+.content>h3 {
+	margin: 55px 0 20px;
+	font-weight: 400;
+	color: #1f2f3d;
+}
+
+.content>p {
+	font-size: 14px;
+	color: #5e6d82;
+	line-height: 60px;
+}
+
+.content>pre {
+	line-height: 1.8;
+	font-family: Menlo, Monaco, Consolas, Courier, monospace;
+	font-size: 12px;
+	padding: 18px 24px;
+	background-color: #fafafa;
+	border: 1px solid #eaeefb;
+	margin-bottom: 25px;
+	border-radius: 4px;
+	-webkit-font-smoothing: auto;
+}
+
+.content>table {
+	border-collapse: collapse;
+	width: 100%;
+	background-color: #fff;
+	font-size: 14px;
+	margin-bottom: 45px;
+}
+
+.content>table th {
+	text-align: left;
+	white-space: nowrap;
+	color: #909399;
+	font-weight: 400;
+	border-bottom: 1px solid #dcdfe6;
+	padding: 15px;
+}
+
+.content>table td {
+	border-bottom: 1px solid #dcdfe6 !important;
+	word-break: break-all;
+	padding: 15px;
+	color: #606266;
+}
+
+
+#app {
+	height: 100%;
+
+	&.is-component {
+		overflow-y: hidden;
+
+		.main-cnt {
+			padding: 0;
+			margin-top: 0;
+			height: 100%;
+			min-height: auto;
+		}
+
+		.headerWrapper {
+			position: fixed;
+			width: 100%;
+			left: 0;
+			top: 0;
+			z-index: 1500;
+
+			.container {
+				padding: 0;
+			}
+		}
+	}
+}
+
+a {
+	color: #409EFF;
+	text-decoration: none;
+}
+
+
+button,
+input,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+}
+
+.hljs {
+	line-height: 1.8;
+	font-family: Menlo, Monaco, Consolas, Courier, monospace;
+	font-size: 12px;
+	margin-bottom: 25px;
+	border-radius: 4px;
+	-webkit-font-smoothing: auto;
+}
+
+.main-cnt {
+	margin-top: -80px;
+	padding: 80px 0 340px;
+	box-sizing: border-box;
+	min-height: 100%;
+}
+
+.container,
+.page-container {
+	width: 1140px;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.page-container {
+	padding-top: 55px;
+
+	h2 {
+		font-size: 28px;
+		color: #1f2d3d;
+		margin: 0;
+	}
+
+	h3 {
+		font-size: 22px;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5 {
+		font-weight: normal;
+		color: #1f2f3d;
+
+		&:hover a {
+			opacity: .4;
+		}
+
+		a {
+			float: left;
+			margin-left: -20px;
+			opacity: 0;
+			cursor: pointer;
+
+			&:hover {
+				opacity: .4;
+			}
+		}
+	}
+
+	p {
+		font-size: 14px;
+		color: #5e6d82;
+		line-height: 1.5em;
+	}
+
+	.tip {
+		padding: 8px 16px;
+		background-color: #ECF8FF;
+		border-radius: 4px;
+		border-left: #50bfff 5px solid;
+		margin: 20px 0;
+
+		code {
+			background-color: rgba(255, 255, 255, .7);
+			color: #445368;
+		}
+	}
+
+	.warning {
+		padding: 8px 16px;
+		background-color: #fff6f7;
+		border-radius: 4px;
+		border-left: #FE6C6F 5px solid;
+		margin: 20px 0;
+
+		code {
+			background-color: rgba(255, 255, 255, .7);
+			color: #445368;
+		}
+	}
+}
+
+.demo {
+	margin: 20px 0;
+}
+
+@media (max-width: 1140px) {
+
+	.container,
+	.page-container {
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.container,
+	.page-container {
+		padding: 0 20px;
+	}
+
+	#app.is-component .headerWrapper .container {
+		padding: 0 12px;
+	}
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-title,
+.hljs-section,
+.hljs-built_in,
+.hljs-doctag,
+.hljs-type,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-strong {
+	color: #3182bd;
+	background-color: #F7F7F7;
+}
+
+.hljs-string,
+.hljs-meta,
+.hljs-symbol,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition {
+	color: #756bb1;
+}

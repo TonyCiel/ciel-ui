@@ -1,0 +1,11 @@
+{
+	"testButton" : "./packages/test-button/index.js",
+	"testText" : "./packages/test-text/index.js",
+	"Button" : "./packages/button/index.js",
+	"Row" : "./packages/row/index.js",
+	"Col" : "./packages/col/index.js",
+	"Toast" : "./packages/toast/index.js",
+	"Input" : "./packages/input/index.js",
+	"Filterselect" : "./packages/filterselect/index.js",
+	"Calendar" : "./packages/calendar/index.js"
+}

@@ -1,0 +1,120 @@
+{
+	"routeconfig":[
+		{
+			"name": "开发指南",
+			"children": [{
+				"path": "/installation",
+				"title": "安装",
+				"meta" : {
+					"title": "安装"
+				},
+				"name": "installation",
+				"type": "doc"
+			},{
+				"path": "/quickstart",
+				"title": "快速上手",
+				"meta" : {
+					"title": "快速上手"
+				},
+				"name": "quickstart",
+				"type": "doc"
+			}]
+		},
+		{
+			"name": "测试组件",
+			"isTest": true,
+			"children": [{
+				"path": "/test-button",
+				"title": "测试按钮",
+				"meta" : {
+					"title": "测试按钮"
+				},
+				"name": "test-button",
+				"type": "doc"
+			},
+			{
+				"path": "/test-text",
+				"title": "测试文案",
+				"meta" : {
+					"title": "测试文案"
+				},
+				"name": "test-text",
+				"type": "doc"
+			},
+			{
+				"path": "/file_ceshi",
+				"title": "测试页面",
+				"meta" : {
+					"title": "测试页面"
+				},
+				"name": "file_ceshi"
+			}]
+		},
+		{
+			"name": "基础组件",
+			"children": [{
+				"path": "/icon",
+				"title": "Icon 图标",
+				"meta" : {
+					"title": "Icon 图标"
+				},
+				"name": "icon",
+				"type": "doc"
+			},{
+				"path": "/layout",
+				"title": "Layout 布局",
+				"meta" : {
+					"title": "Layout 布局"
+				},
+				"name": "layout",
+				"type": "doc"
+			},{
+				"path": "/button",
+				"title": "Button 按钮",
+				"meta" : {
+					"title": "Button 按钮"
+				},
+				"name": "button",
+				"type": "doc"
+			},{
+				"path": "/toast",
+				"title": "Toast 提示",
+				"meta" : {
+					"title": "Toast 提示"
+				},
+				"name": "toast",
+				"type": "doc"
+			}]
+		},
+		{
+			"name": "表单组件",
+			"children": [{
+				"path": "/input",
+				"title": "Input 输入框",
+				"meta" : {
+					"title": "Input 输入框"
+				},
+				"name": "input",
+				"type": "doc"
+			},
+			{
+				"path": "/filterselect",
+				"title": "Filterselect 过滤选择",
+				"meta" : {
+					"title": "Filterselect 过滤选择"
+				},
+				"name": "filterselect",
+				"type": "doc"
+			},
+			{
+				"path": "/calendar",
+				"title": "calendar 日期选择器",
+				"meta" : {
+					"title": "calendar 日期选择器"
+				},
+				"name": "calendar",
+				"type": "doc"
+			}]
+		}
+	]
+}

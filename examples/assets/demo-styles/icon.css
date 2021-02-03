@@ -1,0 +1,43 @@
+.icon-list > i {
+	font-size: 24px;
+	margin: 30px;
+	color: #606266;
+}
+
+.icon-list-wrap {
+	overflow: hidden;
+	list-style: none;
+	padding: 0!important;
+	border: solid 1px #eaeefb;
+	border-radius: 4px;
+}
+
+.icon-list-wrap > li {
+	float: left;
+	width: 16.66%;
+	text-align: center;
+	height: 120px;
+	line-height: 120px;
+	color: #666;
+	font-size: 13px;
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	margin-right: -1px;
+	margin-bottom: -1px;
+}
+.icon-list-wrap > li > span {
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+      "Microsoft YaHei", SimSun, sans-serif;
+    color: #99a9bf;
+    transition: color 0.15s linear;
+  }
+  .icon-list-wrap > li > span>  i {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #606266;
+    transition: color 0.15s linear;
+  }

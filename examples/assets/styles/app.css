@@ -1,0 +1,195 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	background-repeat: no-repeat;
+	outline: none;
+}
+
+input,
+textarea,
+.def-font-family {
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+::-webkit-input-placeholder,
+::-moz-input-placeholder {
+	color: #aaa;
+}
+
+/**链接颜色*/
+.color_select,
+.drt_link,
+.drt_link:visited,
+.color_select:hover {
+	color: #4BC5C3;
+}
+
+input {
+	font-size: 14px;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.al_center {
+	text-align: center;
+}
+
+.font_bold {
+	font-weight: bold;
+}
+
+.font_14 {
+	font-size: 14px;
+}
+
+.font_16 {
+	font-size: 16px;
+}
+
+/**滚动条*/
+.wt-scroll {
+	overflow: auto;
+	overflow: overlay !important;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-color: rgba(0, 0, 0, 0.06) transparent;
+	scrollbar-width: thin;
+}
+
+.wt-scroll::-webkit-scrollbar {
+	width: 9px;
+	height: 9px;
+}
+
+.wt-scroll::-webkit-scrollbar-track {
+	border-radius: 8px;
+	background-color: rgba(0, 0, 0, 0)
+}
+
+.wt-scroll::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: -2px 0 0 #fff inset, 1px 0 0 #fff inset, 0 -1px 0 rgba(255, 255, 255, 0.9) inset, 0 1px 0 rgba(255, 255, 255, 0.9) inset
+}
+
+.wt-scroll::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(0, 0, 0, 0.2)
+}
+
+.wt-scroll::-webkit-scrollbar-thumb:active {
+	background: rgba(0, 0, 0, 0.4)
+}
+
+
+.flexlayout {
+	display: flex;
+}
+
+.flexlayout_flow {
+	flex-wrap: wrap;
+}
+
+.flexlayout_column {
+	flex-direction: column;
+}
+
+.flexitem_auto {
+	flex: 1;
+}
+
+.flexlayout_flow_vertical {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: column;
+}
+
+.flexlayout_horizontal {
+	justify-content: center;
+}
+
+.flexlayout_middle {
+	align-items: center;
+}
+
+.flexlayout_content_end {
+	justify-content: flex-end;
+}
+
+.flexlayout_content_between {
+	justify-content: space-between
+}
+
+.virtualbutton_light,
+.virtualbutton,
+.virtualbutton_default {
+	width: 100px;
+	line-height: 40px;
+	text-align: center;
+	border: 1px solid #37aca9;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	box-sizing: border-box;
+}
+
+
+.virtualbutton {
+	color: white;
+	background-color: #4BC5C3;
+}
+
+.virtualbutton:hover {
+	background-color: #37ACA9;
+}
+
+.virtualbutton_light {
+	color: #444444;
+	background-color: white;
+	border: 1px solid #dedede;
+}
+
+.virtualbutton_light:hover {
+	background-color: #f9f9f9;
+}
+
+.virtualbutton_default {
+	border-color: rgba(75, 197, 195, .5);
+	background-color: transparent;
+	color: #33b6ae;
+}
+
+.virtualbutton_default:hover {
+	border-color: #33b6ae;
+}
+
+.virtualwindow .cancel {
+	margin-left: 10px;
+}
+
+/**一下为js库依赖样式*/
+/**msgview控件样式*/
+.ciel_msgview_modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 99999;
+}
+
+body {
+	--maincolor: #1ba9f9;
+}
+
+
+

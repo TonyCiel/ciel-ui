@@ -1,0 +1,24 @@
+.ciel-calendar__content {
+	/* width: 100%; */
+	height: 0;
+	transition: all .2s;
+	position: absolute;
+}
+.ciel-calendar__content {
+	z-index: 99;
+}
+.ciel-calendar {
+	width: 100%;
+	position: relative;
+}
+.ciel-calendar__content--active {
+	height: 230px;
+	box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+	box-sizing: border-box;
+	background: #fff;
+	border-radius: 4px;
+	overflow-y: auto;
+}
+.ciel-input__icon--22 {
+	font-size: 22px;
+}

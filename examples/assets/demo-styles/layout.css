@@ -1,0 +1,15 @@
+.ciel-row--bg {
+	background-color: #F7F7F7;
+	min-height: 50px;
+}
+.grid-content {
+	min-height: 36px;
+	width: 100%;
+	border-radius: 3px;
+}
+.bg-purple-dark {
+	background: #99a9bf;
+}
+.bg-purple {
+	background: #d3dce6;
+}

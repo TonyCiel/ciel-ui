@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1.0,maximum=scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>	ciel-ui</title>
+  </head>
+  <body>
+    <div id="app"></div>
+		<script style="text/javascript">
+			if(process.env.NODE_ENV === 'production') {
+				var head= document.getElementsByTagName('head')[0];
+				var scriptVue= document.createElement('script');
+				scriptVue.type= 'text/javascript';
+				scriptVue.src= "https://cdn.bootcss.com/vue/2.5.17/vue.min.js";
+				head.appendChild(scriptVue);
+				var scriptVueRoute= document.createElement('script');
+				scriptVueRoute.type= 'text/javascript';
+				scriptVueRoute.src= "https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js";
+				head.appendChild(scriptVueRoute);
+				
+				var scriptHighlight= document.createElement('script');
+				scriptHighlight.type= 'text/javascript';
+				scriptHighlight.src= "https://cdn.bootcdn.net/ajax/libs/highlight.js/10.5.0/highlight.min.js";
+				head.appendChild(scriptHighlight);
+				
+			}
+		</script>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

@@ -1,0 +1,153 @@
+.ciel-input {
+	width: 100%;
+	position: relative;
+
+}
+
+.ciel-input-group--count {
+	display: flex;
+	align-items: center;
+}
+
+
+
+.ciel-input__inner {
+	background-color: #fff;
+	background-image: none;
+	border-radius: 4px;
+	border: 1px solid #dcdfe6;
+	box-sizing: border-box;
+	color: #606266;
+	display: inline-block;
+	font-size: inherit;
+	height: 40px;
+	line-height: 40px;
+	outline: none;
+	padding: 0 15px;
+	transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+	width: 100%;
+	font-size: 14px;
+	cursor: pointer;
+	overflow: hidden;
+	/*溢出隐藏*/
+	text-overflow: ellipsis;
+	/*以省略号...显示*/
+	white-space: nowrap;
+	/*强制不换行*/
+
+}
+
+.ciel-input__inner--group__prepend {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.ciel-input__inner--group__append {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+
+.ciel-input__inner--clear {
+	padding-right: 30px;
+}
+
+.ciel-input__inner--prefix {
+	padding-left: 30px;
+}
+
+.ciel-input__inner--suffix {
+	padding-right: 30px;
+}
+
+.ciel-input__inner--suffix--clear {
+	padding-right: 50px;
+}
+
+.ciel-input__inner::-webkit-input-placeholder {
+	color: #dcdfe6;
+}
+
+.ciel-input__inner:focus {
+	border: 1px solid var(--maincolor);
+}
+
+.ciel-input__inner:disabled {
+	background-color: #f5f7fa;
+	border-color: #e4e7ed;
+	color: #c0c4cc;
+	cursor: not-allowed;
+}
+
+.ciel-input__clear {
+	position: absolute;
+	right: 10px;
+}
+
+.ciel-input__clear--suffix {
+	right: 30px;
+}
+
+.ciel-input__icon {
+	width: 25px;
+	height: 100%;
+	line-height: 40px;
+	color: #dcdfe6;
+	cursor: pointer;
+
+}
+
+.ciel-input__prefix-icon {
+	position: absolute;
+	left: 8px;
+}
+
+.ciel-input__suffix-icon {
+	position: absolute;
+	right: 8px;
+}
+
+.ciel-input__eye {
+	position: absolute;
+	right: 20px;
+}
+
+.ciel-input-group {
+	line-height: normal;
+	display: inline-table;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+.ciel-input-group__prepend,
+.ciel-input-group__append {
+	background-color: #f5f7fa;
+	color: #909399;
+	vertical-align: middle;
+	display: table-cell;
+	position: relative;
+	border: 1px solid #dcdfe6;
+	border-radius: 4px;
+	padding: 0 20px;
+	width: 1px;
+	white-space: nowrap;
+}
+
+.ciel-input-group__prepend {
+	border-right: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+
+}
+
+.ciel-input-group__append {
+	border-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.ciel-input__count {
+	color: #909399;
+	font-size: 14px;
+	margin-left: 10px;
+}
