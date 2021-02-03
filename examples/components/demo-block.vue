@@ -1,10 +1,11 @@
 <template>
 	<div class="docs-demo-wrapper">
 		<div class="source"><slot name="source"></slot></div>
-		<div :style="{ height: isExpand ? 'auto' : '0' }" class="demo-container">
+		<!-- :style="{ height: isExpand ? '300px' : '0px' }" -->
+		<div class="demo-container" ref="content">
 			<div span="14">
 				<div class="docs-demo docs-demo--expand">
-					<div class="highlight-wrapper"><slot name="highlight"></slot></div>
+					<div class="highlight-wrapper" ref="highlightWrapper"><slot name="highlight"></slot></div>
 				</div>
 			</div>
 		</div>
@@ -24,6 +25,11 @@ export default {
 	methods: {
 		toggle() {
 			this.isExpand = !this.isExpand;
+			this.$nextTick(() => {
+				let height = this.isExpand ? this.$refs.highlightWrapper.clientHeight : 0;
+				let el = this.$refs.content;
+				el.style.height = `${height}px`;
+			})
 		}
 	}
 };
@@ -45,7 +51,8 @@ export default {
 	
 }
 .demo-container {
-	transition: max-height 0.3s;
+	height: 0;
+	transition: height 0.3s;
 	overflow: hidden;
 	
 }
