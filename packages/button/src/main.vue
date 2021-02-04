@@ -55,6 +55,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped="scoped">
 @import url('../../../examples/assets/styles/button.css');
 </style>

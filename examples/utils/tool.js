@@ -21,6 +21,9 @@ var QueueData = {};
 function isFn(obj) {
 	return typeof obj == 'function';
 }
+function containsElem(parent, elem) {
+	return parent.contains ? parent.contains(elem) : !!(parent.compareDocumentPosition(elem) & 16);
+}
 /**
  * 队列对象
  */
@@ -80,6 +83,7 @@ function isObject(obj) {
 export default {
 	isFunction: isFn,
 	isObject: isObject,
+	containsElem: containsElem,
 	browser: browser,
     fixkeyboardInWeixin: function() {
 		//微信下处理ios系统，调用系统键盘失去焦点后，页面下不来的问题

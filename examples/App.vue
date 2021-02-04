@@ -45,6 +45,7 @@ body {
 	box-sizing: content-box;
 	overflow-y: auto;
 	flex: 1;
+	padding-left: 10px;
 }
 .app-main {
 	background-color: white;

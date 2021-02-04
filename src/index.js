@@ -7,6 +7,7 @@ import Toast from '../packages/toast/index.js';
 import cielInput from '../packages/input/index.js';
 import cielFilterselect from '../packages/filterselect/index.js';
 import cielCalendar from '../packages/calendar/index.js';
+import cielTimePicker from '../packages/timepicker/index.js';
 import '../examples/assets/styles/toast.css';
 import '../examples/assets/icon/iconfont.css';
 import '../examples/assets/icon/icon.css';
@@ -20,7 +21,8 @@ const components = [
 	cielCol,
 	cielInput,
 	cielFilterselect,
-	cielCalendar
+	cielCalendar,
+	cielTimePicker
 ];
 
 const install = function(Vue, opts = {}) {
@@ -45,5 +47,6 @@ export default {
 	Toast,
 	cielInput,
 	cielFilterselect,
-	cielCalendar
+	cielCalendar,
+	cielTimePicker
 };

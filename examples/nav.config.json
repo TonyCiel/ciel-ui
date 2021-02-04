@@ -114,6 +114,15 @@
 				},
 				"name": "calendar",
 				"type": "doc"
+			},
+			{
+				"path": "/timepicker",
+				"title": "timepicker 时间选择器",
+				"meta" : {
+					"title": "timepicker 时间选择器"
+				},
+				"name": "timepicker",
+				"type": "doc"
 			}]
 		}
 	]

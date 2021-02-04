@@ -1,8 +1,8 @@
 <template>
-	<div class="ciel-calendar" ref="woolselect">
+	<div class="ciel-calendar" ref="selectwrap">
 		<ciel-input
-		prefix-icon="ciel-icon-calendar"
-		:placeholder="placeholder"
+			prefix-icon="ciel-icon-calendar"
+			:placeholder="placeholder"
 			:disabled="disabled"
 			class="ciel-calendar__input"
 			:value="dateshow"
@@ -12,7 +12,7 @@
 			@clear="clearInput"
 			@keydown="inputkeydown"
 		></ciel-input>
-		
+
 		<section
 			class="ciel-calendar__content"
 			:class="{
@@ -20,26 +20,21 @@
 			}"
 			ref="pluginArea"
 		>
-			<div v-show="isshow">
-				<calendar :max="maxNum" :limitstart="limitStart" :limitend="limitEnd" :type="type" v-model="selectDates"></calendar>
-			</div>
+			<div v-show="isshow"><calendar :max="maxNum" :limitstart="limitStart" :limitend="limitEnd" :type="type" v-model="selectDates"></calendar></div>
 		</section>
 	</div>
 </template>
 
 <script>
 import calendar from './calendar.vue';
-function containsElem(parent, elem) {
-	return parent.contains ? parent.contains(elem) : !!(parent.compareDocumentPosition(elem) & 16);
-}
 export default {
 	name: 'cielCalendar',
 	components: {
 		calendar
 	},
 	model: {
-	  prop: "value",
-	  event: "change",
+		prop: 'value',
+		event: 'change'
 	},
 	props: {
 		placeholder: {
@@ -47,11 +42,11 @@ export default {
 			default: '请选择日期'
 		},
 		value: {
-			type: [String,Array]
+			type: [String, Array]
 		},
 		disabled: Boolean,
 		showClear: Boolean,
-		max:Number,
+		max: Number,
 		// 类型，date为单选，dateRange区间选择，dateMultiple,多选日期
 		type: {
 			type: String,
@@ -74,50 +69,49 @@ export default {
 			selectDates: [],
 			isshow: false,
 			rangeTimeStr: ''
-		}
+		};
 	},
 	watch: {
 		value(val) {
 			this.setValue();
 		},
 		dateshow() {
-			if(this.type == 'date') {
-				let date = this.selectDates.length ?  this.selectDates[0] : null;
-				this.$emit('change',date ? new Date(date).format('yyyy-MM-dd'): '');
+			if (this.type == 'date') {
+				let date = this.selectDates.length ? this.selectDates[0] : null;
+				this.$emit('change', date ? new Date(date).format('yyyy-MM-dd') : '');
 				return;
 			}
-			if(this.type == 'dateMultiple' || this.type == 'dateRange') {
+			if (this.type == 'dateMultiple' || this.type == 'dateRange') {
 				let list = this.selectDates.map(item => {
 					return new Date(item).format('yyyy-MM-dd');
 				});
-				this.$emit('change',list);
+				this.$emit('change', list);
 			}
 		},
 		isshow(val) {
-			if(!val && this.type === 'dateRange' && this.selectDates.length) {
-				this.rangeTimeStr = `${new Date(this.selectDates[0]).format(this.format)}  ${this.rangeSeparator}  ${new Date(this.selectDates[1]).format(this.format)}`
+			if (!val && this.type === 'dateRange' && this.selectDates.length) {
+				this.rangeTimeStr = `${new Date(this.selectDates[0]).format(this.format)}  ${this.rangeSeparator}  ${new Date(this.selectDates[1]).format(this.format)}`;
 			}
-			
 		}
 	},
 	computed: {
 		maxNum() {
 			return this.max ? this.max : this.type === 'date' ? 1 : 2;
 		},
-		dateshow(){
+		dateshow() {
 			let str = '';
 			let list = this.selectDates;
-			if(this.type === 'date' && this.selectDates.length) {
+			if (this.type === 'date' && this.selectDates.length) {
 				return new Date(this.selectDates[0]).format(this.format);
 			}
-			if(this.type === 'dateRange') {
+			if (this.type === 'dateRange') {
 				return this.rangeTimeStr;
 			}
-			if(this.type === 'dateMultiple') {
+			if (this.type === 'dateMultiple') {
 				list.forEach(item => {
-					str = new Date(item).format(this.format) + ';' + str
+					str = new Date(item).format(this.format) + ';' + str;
 				});
-				console.log('str',str)
+				console.log('str', str);
 				return str;
 			}
 			return str;
@@ -126,13 +120,13 @@ export default {
 	methods: {
 		setValue() {
 			let val = this.value;
-			if(typeof val === 'string') {
-				this.selectDates = val ? [val]: [];
+			if (typeof val === 'string') {
+				this.selectDates = val ? [val] : [];
 			} else {
 				this.selectDates = val;
 			}
-			if(!this.isshow && this.type === 'dateRange' && this.selectDates.length) {
-				this.rangeTimeStr = `${new Date(this.selectDates[0]).format(this.format)}  ${this.rangeSeparator}  ${new Date(this.selectDates[1]).format(this.format)}`
+			if (!this.isshow && this.type === 'dateRange' && this.selectDates.length) {
+				this.rangeTimeStr = `${new Date(this.selectDates[0]).format(this.format)}  ${this.rangeSeparator}  ${new Date(this.selectDates[1]).format(this.format)}`;
 			}
 		},
 		clearInput() {
@@ -152,9 +146,9 @@ export default {
 			if (!this.isshow) {
 				return;
 			}
-			var el = this.$refs.woolselect;
+			var el = this.$refs.selectwrap;
 			var target = e.target;
-			if (el == target || containsElem(el, target)) {
+			if (el == target || this.$tool.containsElem(el, target)) {
 				return;
 			}
 			this.isshow = false;
@@ -164,7 +158,9 @@ export default {
 		document.addEventListener('click', this.eventToggle);
 		this.setValue();
 	},
-	
+	beforeDestroy() {
+		document.removeEventListener('click', this.eventToggle);
+	}
 };
 </script>
 

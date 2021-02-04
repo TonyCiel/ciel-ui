@@ -7,12 +7,14 @@ import cielUi from '../src/index.js';
 import './assets/demo-styles/index.css';
 import icons from './assets/icon/iconfont.json'; 
 import hljs from 'highlight.js';
+import tool from './utils/tool.js';
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
 Vue.use(cielUi);
 Vue.component('demo-block', demoBlock);
 Vue.prototype.$icon = icons.glyphs;
+Vue.prototype.$tool = tool;
 
 let router = new VueRouter({
 	scrollBehavior (to, from, savedPosition) {
