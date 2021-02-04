@@ -7,5 +7,6 @@
 	"Toast" : "./packages/toast/index.js",
 	"Input" : "./packages/input/index.js",
 	"Filterselect" : "./packages/filterselect/index.js",
-	"Calendar" : "./packages/calendar/index.js"
+	"Calendar" : "./packages/calendar/index.js",
+	"TimePicker" : "./packages/timepicker/index.js"
 }
