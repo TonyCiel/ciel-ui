@@ -11,6 +11,9 @@ const webpackConfig = {
 	entry: {
 		app: './examples/main.js'
 	},
+	performance: {
+		hints: false
+	},
 	output: {
 		path: path.join(__dirname, './dist'),
 		publicPath: '/',
@@ -97,11 +100,11 @@ const webpackConfig = {
 			inject: true
 		}),
 		new webpack.LoaderOptionsPlugin({
-		  vue: {
-		    compilerOptions: {
-		      preserveWhitespace: false
-		    }
-		  }
+			vue: {
+				compilerOptions: {
+					preserveWhitespace: false
+				}
+			}
 		})
 	],
 	optimization: {
@@ -114,11 +117,11 @@ webpackConfig.externals = {
 	'vue-router': 'VueRouter',
 	'highlight.js': 'hljs'
 };
- webpackConfig.plugins.push(
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash:7].css'
-    })
-  );
+webpackConfig.plugins.push(
+	new MiniCssExtractPlugin({
+		filename: '[name].[contenthash:7].css'
+	})
+);
 // https://webpack.js.org/configuration/optimization/#optimizationsplitchunks
 webpackConfig.optimization.splitChunks = {
 	cacheGroups: {
