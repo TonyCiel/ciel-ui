@@ -1,5 +1,5 @@
 <template>
-	<div class="ciel-personselect">
+	<div class="ciel-personselect" ref="selectwrap">
 		<ciel-input
 			:disabled="disabled"
 			class="ciel-personselect__input"
@@ -183,9 +183,9 @@ export default {
 			this.isshow = true;
 		},
 		onBlur() {
-			setTimeout(() => {
-				this.isshow = false;
-			}, 300);
+			// setTimeout(() => {
+			// 	this.isshow = false;
+			// }, 300);
 		},
 		// 向上选择
 		upSelect() {
@@ -304,13 +304,32 @@ export default {
 					inputview.setSelectionRange(pos, pos);
 				});
 			}
-		}
+		},
+		eventToggle(e) {
+			if (this.disabled && !this.isshow) {
+				return;
+			}
+			if (!this.isshow) {
+				return;
+			}
+			var el = this.$refs.selectwrap;
+			var target = e.target;
+			if (el == target || this.$tool.containsElem(el, target)) {
+				return;
+			}
+			this.isshow = false;
+		},
 	},
+	
 	mounted() {
 		this.$nextTick(() => {
 			this.selectList = this.value;
 		});
-	}
+		document.addEventListener('click', this.eventToggle);
+	},
+	beforeDestroy() {
+		document.removeEventListener('click', this.eventToggle);
+	},
 };
 </script>
 
