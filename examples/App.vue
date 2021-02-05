@@ -31,7 +31,7 @@ export default {
 @import url('assets/styles/app.css');
 #app {
 	background-color: #f8faff;
-	padding: 30px;
+	padding: 2vw;
 	box-sizing: border-box;
 	overflow-y: hidden;
 }
@@ -39,8 +39,8 @@ body {
 	margin: 0;
 }
 .app-content {
-	margin-left: 40px;
-	padding-top: 40px;
+	margin-left: 3vw;
+	padding-top: 3vw;
 	height: calc(100vh - 120px);
 	box-sizing: content-box;
 	overflow-y: auto;
@@ -50,8 +50,8 @@ body {
 .app-main {
 	background-color: white;
 	display: flex;
-	box-shadow: 0px 4px 30px 0px #dadada;
-	/* box-shadow: 0px 4px 30px 0px rgb(223 225 230  50%); */
+	box-shadow: 0px 4px 2vw 0px #dadada;
+	/* box-shadow: 0px 4px 2vw 0px rgb(223 225 230  50%); */
 	/* align-items: center;*/
 }
 </style>

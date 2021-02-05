@@ -39,9 +39,7 @@ export default {
 .docs-demo-wrapper {
 	width: 95%;
 	.source {
-		padding: 32px;
-		border: 1px solid #e5e5e5;
-		border-radius: 4px 4px 0 0;
+		padding-bottom: 32px;
 		background-color: #fff;
 	}
 	
@@ -79,7 +77,11 @@ export default {
 	padding: 10px 0;
 	border: 1px solid #e5e5e5;
 	background-color: #fafbfc;
-	margin-top: 10px
+	margin-top: 10px;
+	cursor: pointer
+}
+.docs-trans:hover {
+	color: var(--maincolor)
 }
 .docs-demo__code,
 .highlight-wrapper,

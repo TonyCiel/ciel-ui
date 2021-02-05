@@ -26,23 +26,25 @@
 						'ciel-time-picker__content-timewarp--border': type === 'timerange'
 					}"
 					:isshow="isshow"
-					:value="timeStart"
+					v-model="timeStart"
 					:disabledHours="disabledHours"
 					:disabledMinutes="disabledMinutes"
 					:disabledSeconds="disabledSeconds"
 					:type="type"
 					:formatValue="formatValue"
-					@change="timeStart = $event"
 					@changeArr="startTimeArr = $event"
 					ref="startTime"
+					@changeHour="changeStartHour"
+					@changeMinute="changeStartMinute"
+					@changeSecond="changeStartSecond"
 				></timepicker>
 				<timepicker
 					:isshow="isshow"
+					v-model="timeEnd"
 					:disabledHours="disabledEndHours"
 					:disabledMinutes="disabledEndMinutes"
 					:disabledSeconds="disabledEndSeconds"
 					v-if="type === 'timerange'"
-					@change="timeEnd = $event"
 					@changeArr="endTimeArr = $event"
 					:type="type"
 					title="结束时间"
@@ -123,7 +125,7 @@ export default {
 		},
 		model(val) {
 			this.$emit('change', val);
-		},
+		}
 	},
 	computed: {
 		valshow() {
@@ -159,7 +161,7 @@ export default {
 				for (let i = 0; i < 60; i++) {
 					let value = String(i);
 					let minute = value.length == 1 ? `0${i}` : value;
-					if (i < startMinute) {
+					if (i < startMinute && this.startTimeArr[0] == this.endTimeArr[0]) {
 						list = [...list, minute];
 					}
 				}
@@ -173,7 +175,7 @@ export default {
 				for (let i = 0; i < 60; i++) {
 					let value = String(i);
 					let second = value.length == 1 ? `0${i}` : value;
-					if (i < startSecond) {
+					if (i < startSecond && this.startTimeArr[1] == this.endTimeArr[1]) {
 						list = [...list, second];
 					}
 				}
@@ -191,22 +193,33 @@ export default {
 				let date = new Date().format('yyyy-MM-dd');
 				let startTime = val;
 				let start = `${date} ${startTime}`;
-				this.timeStart = val ? new Date(start).format(this.formatValue): '';
+				this.timeStart = val ? new Date(start).format(this.formatValue) : '';
 			} else {
 				let date = new Date().format('yyyy-MM-dd');
 				let startTime = val[0] ? val[0] : '';
 				let start = `${date} ${startTime}`;
-				this.timeStart = startTime ? new Date(start).format(this.formatValue): '';
+				this.timeStart = startTime ? new Date(start).format(this.formatValue) : '';
 				let endTime = val[1] ? val[1] : '';
 				let end = `${date} ${endTime}`;
 				this.timeEnd = endTime ? new Date(end).format(this.formatValue) : '';
 				this.timeRange = this.timeStart && this.timeEnd ? `${this.timeStart} ${this.rangeSeparator} ${this.timeEnd}` : '';
-				// this.$nextTick(() => {
-				// 	this.$refs.startTime.setValue();
-				// 	setTimeout(() => {
-				// 		this.$refs.endTime.setValue();
-				// 	})
-				// })
+			}
+		},
+		changeStartHour(hour) {
+			if (this.type === 'timerange') {
+				this.$refs.endTime.resetHour(hour); // 结束时间始终与开始时间保持一致
+			}
+		},
+		changeStartMinute(minute) {
+			// 如果小时是一样的 那么分钟也要保持一致
+			if (this.type === 'timerange' && this.startTimeArr[0] == this.endTimeArr[0]) {
+				this.$refs.endTime.resetMinute(minute);
+			}
+		},
+		changeStartSecond(second) {
+			// 如果小时是一样的分钟也是一样的 则秒钟要保持一致
+			if (this.type === 'timerange' && this.startTimeArr[0] == this.endTimeArr[0] && this.startTimeArr[1] == this.endTimeArr[1]) {
+				this.$refs.endTime.resetSecond(second);
 			}
 		},
 		inputkeydown(e) {
@@ -227,13 +240,13 @@ export default {
 			this.isshow = false;
 		},
 		clearInput() {
-			this.timeEnd = "";
-			this.timeStart = "";
+			this.timeEnd = '';
+			this.timeStart = '';
+			this.timeRange = '';
 			this.$refs.startTime.clear();
-			if(this.type === 'timerange') {
+			if (this.type === 'timerange') {
 				this.$refs.endTime.clear();
 			}
-			
 		}
 	},
 	mounted() {

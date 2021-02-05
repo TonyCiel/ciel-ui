@@ -61,6 +61,7 @@ export default {
 .nav-item-children {
 	list-style: none;
 	padding-left: 6px;
+	margin: 0;
 }
 .nav-item-children > li {
 	display: block;

@@ -19,7 +19,7 @@
 	border-radius: 4px;
 	overflow-y: auto;
 }
-.ciel-time-picker__content__title--active {
+.ciel-time-picker__content--active.ciel-time-picker__content__title--active {
 	height: 180px;
 }
 

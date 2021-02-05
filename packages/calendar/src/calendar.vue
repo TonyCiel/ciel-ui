@@ -193,6 +193,7 @@ export default {
 	data: function() {
 		var today = new Date();
 		return {
+			isFirstLoadCalendar: true,
 			maxmonth: 3,
 			showdate: today,
 			today: today.format(DEFFORMAT),
@@ -218,7 +219,7 @@ export default {
 							let startTime = new Date(this.selectDateList[0]).getTime();
 							let endTime = new Date(this.selectDateList[1]).getTime();
 							let nowtime = new Date(date).getTime();
-							let isselect = nowtime >= startTime && nowtime <= endTime;
+							let isselect = nowtime >= startTime && nowtime <= endTime ||  new Date(nowtime).format('yyyy-MM-dd') == new Date(startTime).format('yyyy-MM-dd');
 							if (this.selectDateList.length == 1) {
 								isselect = new Date(nowtime).format('yyyy-MM-dd') == new Date(startTime).format('yyyy-MM-dd') ? true : false;
 							}
@@ -331,7 +332,8 @@ export default {
 		},
 		genMonthData: function(year, month) {
 			//第一天的日期
-			var beginDate = new Date().trim();
+			var beginDate = this.value[0] ? new Date(this.value[0]).trim() :  new Date().trim();
+			console.log('beginDate',beginDate)
 			if (month == 1 && beginDate.getMonth() != 1) {
 				// 二月特殊处理
 				beginDate = new Date(beginDate.getTime() - 86400000 * 5).trim(); // 提前五天
@@ -339,8 +341,6 @@ export default {
 			beginDate.setFullYear(year);
 			beginDate.setMonth(month);
 			beginDate.setDate(1);
-			console.log('beginDate', beginDate.format('yyyy-MM-dd'));
-
 			//计算当前月份前的数据
 			var day = beginDate.getDay();
 			var dates = [];

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<ciel-time-picker type="timerange" v-model="time"></ciel-time-picker>
+		<ciel-time-picker type="timerange" v-model="time" show-clear></ciel-time-picker>
 		<button @click="ceshi">111</button>
 	</div>
 </template>

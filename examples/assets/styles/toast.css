@@ -46,7 +46,7 @@
 }
 
 .ciel_msgview.error .ciel_msgview_loading:before {
-	content: "\e681";
+	content: "\e61c";
 }
 
 .ciel_msgview.iconable .ciel_msgview_loading:before {

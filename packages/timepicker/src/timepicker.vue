@@ -58,8 +58,13 @@ export default {
 		return {
 			hour: '',
 			minute: '',
-			second: ''
+			second: '',
+			isFirstLoadPicker: true
 		};
+	},
+	model: {
+		prop: 'value',
+		event: 'change'
 	},
 	props: {
 		value: String,
@@ -94,8 +99,9 @@ export default {
 			this.$emit('changeArr', val);
 		},
 		isshow(val) {
-			if(val) {
+			if(val && this.isFirstLoadPicker) {
 				this.setValue();
+				this.isFirstLoadPicker = false;
 			}
 		}
 		
@@ -176,6 +182,7 @@ export default {
 				let elMinute = this.$refs.minutes;
 				this.scrollUl(elMinute, el, 0);
 			}
+			if(!this.isFirstLoadPicker) {this.$emit('changeHour',item)};
 		},
 		selectMinute(e, item) {
 			if (e && e.target.classList.contains('time-picker-cells__wrap__cell--disabled')) {
@@ -189,6 +196,7 @@ export default {
 				let elSecond = this.$refs.seconds;
 				this.scrollUl(elSecond, el, 0);
 			}
+			if(!this.isFirstLoadPicker) {this.$emit('changeMinute',item);}
 		},
 		selectSecond(e, item) {
 			if (e && e.target.classList.contains('time-picker-cells__wrap__cell--disabled')) {
@@ -198,6 +206,8 @@ export default {
 			let el = this.$refs[`second${item}`];
 			this.second = item;
 			this.scrollUl(elSecond, el, item);
+			if(!this.isFirstLoadPicker) {this.$emit('changeSecond',item);}
+			
 		},
 		setValue() {
 			let value = this.value ? this.value.replace(/[^0-9]/ig,":") :'';
@@ -208,9 +218,19 @@ export default {
 			let hour = new Date(time).getHours();
 			let minute = new Date(time).getMinutes();
 			let secound = new Date(time).getSeconds();
-			this.hour = String(hour).length == 1 ? `0${hour}`: String(hour);
-			this.minute = String(minute).length == 1 ? `0${minute}`: String(minute);
-			this.secound = String(secound).length == 1 ? `0${secound}`: String(secound);
+			this.selectHour('',String(hour).length == 1 ? `0${hour}`: String(hour));
+			this.selectMinute('',String(minute).length == 1 ? `0${minute}`: String(minute));
+			this.selectSecond('',String(secound).length == 1 ? `0${secound}`: String(secound));
+		},
+		// 重置小时
+		resetHour(hour) {
+			this.selectHour('',hour);
+		},
+		resetMinute(munite) {
+			this.selectMinute('',munite);
+		},
+		resetSecond(second) {
+			this.selectSecond('',second);
 		},
 		clear() {
 			this.hour = "";
