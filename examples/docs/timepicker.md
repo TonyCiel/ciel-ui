@@ -14,7 +14,7 @@
 export default {
   data() {
     return {
-      time: ''
+      time: '12:05:00'
     }
   }
 }
@@ -36,7 +36,7 @@ export default {
 export default {
   data() {
     return {
-      time: []
+      time: ['12:05:00','12:08:07']
     }
   }
 }
