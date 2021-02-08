@@ -27,8 +27,11 @@
 
 <script>
 import calendar from './calendar.vue';
+import '../../../examples/utils/timeutils.js';
+import inputPopover from '../../../examples/mixins/inputPopover.js';
 export default {
 	name: 'cielCalendar',
+	mixins: [inputPopover],
 	components: {
 		calendar
 	},
@@ -37,15 +40,9 @@ export default {
 		event: 'change'
 	},
 	props: {
-		placeholder: {
-			type: String,
-			default: '请选择日期'
-		},
 		value: {
 			type: [String, Array]
 		},
-		disabled: Boolean,
-		showClear: Boolean,
 		max: Number,
 		// 类型，date为单选，dateRange区间选择，dateMultiple,多选日期
 		type: {
@@ -67,7 +64,6 @@ export default {
 	data() {
 		return {
 			selectDates: [],
-			isshow: false,
 			rangeTimeStr: ''
 		};
 	},
@@ -138,28 +134,10 @@ export default {
 		},
 		inputkeydown(e) {
 			e.preventDefault();
-		},
-		eventToggle(e) {
-			if (this.disabled && !this.isshow) {
-				return;
-			}
-			if (!this.isshow) {
-				return;
-			}
-			var el = this.$refs.selectwrap;
-			var target = e.target;
-			if (el == target || this.$tool.containsElem(el, target)) {
-				return;
-			}
-			this.isshow = false;
 		}
 	},
 	mounted() {
-		document.addEventListener('click', this.eventToggle);
 		this.setValue();
-	},
-	beforeDestroy() {
-		document.removeEventListener('click', this.eventToggle);
 	}
 };
 </script>

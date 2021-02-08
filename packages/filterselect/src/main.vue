@@ -48,8 +48,10 @@
 
 <script>
 import pinyin from '../../../examples/utils/pinyin.js';
+import inputPopover from '../../../examples/mixins/inputPopover.js';
 export default {
 	name: 'cielFilterselect',
+	mixins: [inputPopover],
 	model: {
 		prop: 'value',
 		event: 'select'
@@ -67,20 +69,13 @@ export default {
 				return [];
 			}
 		},
-		placeholder: {
-			type: String,
-			default: '请输入内容'
-		},
 		pinYin: Boolean,
-		disabled: Boolean,
-		showClear: Boolean,
 	},
 	data() {
 		return {
 			keyword: '',
 			selectList: [],
 			selectIdx: -1,
-			isshow: false
 		};
 	},
 	watch: {
@@ -305,31 +300,13 @@ export default {
 				});
 			}
 		},
-		eventToggle(e) {
-			if (this.disabled && !this.isshow) {
-				return;
-			}
-			if (!this.isshow) {
-				return;
-			}
-			var el = this.$refs.selectwrap;
-			var target = e.target;
-			if (el == target || this.$tool.containsElem(el, target)) {
-				return;
-			}
-			this.isshow = false;
-		},
 	},
 	
 	mounted() {
 		this.$nextTick(() => {
 			this.selectList = this.value;
 		});
-		document.addEventListener('click', this.eventToggle);
-	},
-	beforeDestroy() {
-		document.removeEventListener('click', this.eventToggle);
-	},
+	}
 };
 </script>
 

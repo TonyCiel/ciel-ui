@@ -45,6 +45,12 @@ export default {
 	border-right: 1px solid #ececec;
 	margin: 30px;
 }
+.nav::-webkit-scrollbar {
+	width: 0;
+}
+.nav:hover::-webkit-scrollbar {
+	width: 9px;
+}
 .nav-item-name {
 	color: #8dabc4;
     font-size: 12px;
