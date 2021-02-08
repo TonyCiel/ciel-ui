@@ -257,16 +257,18 @@ export default {
 }
 .time-picker-cells__wrap {
 	width: 60px;
-	float: left;
-	list-style: none;
-	max-height: 144px;
-	overflow-y: auto;
-	overflow-x: hidden;
-	box-sizing: border-box;
-	cursor: pointer;
-	border-left: 1px solid #e8eaec;
-	padding-bottom: 120px;
-	position: relative;
+    float: left;
+    list-style: none;
+    max-height: 144px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-left: 1px solid #e8eaec;
+    padding-bottom: 120px;
+    position: relative;
+    padding-left: 0;
+    margin: 0;
 }
 .time-picker-cells__wrap:first-child {
 	border-left: none;

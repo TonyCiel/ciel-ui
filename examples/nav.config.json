@@ -108,20 +108,29 @@
 			},
 			{
 				"path": "/calendar",
-				"title": "calendar 日期选择器",
+				"title": "Calendar 日期选择器",
 				"meta" : {
-					"title": "calendar 日期选择器"
+					"title": "Calendar 日期选择器"
 				},
 				"name": "calendar",
 				"type": "doc"
 			},
 			{
 				"path": "/timepicker",
-				"title": "timepicker 时间选择器",
+				"title": "TimePicker 时间选择器",
 				"meta" : {
-					"title": "timepicker 时间选择器"
+					"title": "TimePicker 时间选择器"
 				},
 				"name": "timepicker",
+				"type": "doc"
+			},
+			{
+				"path": "/richeditor",
+				"title": "RichEditor-提及富文本编辑器",
+				"meta" : {
+					"title": "RichEditor-提及富文本编辑器"
+				},
+				"name": "richeditor",
 				"type": "doc"
 			}]
 		}

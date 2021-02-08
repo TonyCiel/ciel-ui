@@ -1,7 +1,8 @@
 <template>
 	<div>
-		<ciel-time-picker type="timerange" v-model="time" show-clear></ciel-time-picker>
-		<button @click="ceshi">111</button>
+		<!-- <ceil-rich-editor :remindlist="remindlist" v-model="content" enable-up-load-img @uploadimg="uploadImg"></ceil-rich-editor>
+		<!-- <ciel-time-picker type="timerange" v-model="time" show-clear></ciel-time-picker> -->
+		<button @click="ceshi">111</button> -->
 	</div>
 </template>
 
@@ -11,13 +12,13 @@ export default {
 	name: 'file_ceshi',
 	data() {
 		return {
-			time: ['00:13:22','00:15:22']
-		}
+
+		};
 	},
-	methods:{
+	methods: {
 		ceshi() {
-			console.log(this.time)
-		}
+			console.log(this.content);
+		},
 	},
 	mounted() {
 		// setTimeout(() => {
@@ -28,11 +29,10 @@ export default {
 </script>
 
 <style scoped="scoped">
-	.ciel-row {
-		background-color: #F7F7F7;
-		min-height: 50px;
-		
-	}
+.ciel-row {
+	background-color: #f7f7f7;
+	min-height: 50px;
+}
 .bg-purple-dark {
 	min-height: 36px;
 	background: #99a9bf;

@@ -13,6 +13,16 @@
     "stage-2"
   ],
   "plugins": ["transform-vue-jsx"],
+  "plugins": [
+[
+  "transform-runtime",
+  {
+    "helpers": false,
+    "polyfill": false,
+    "regenerator": true,
+    "moduleName": "babel-runtime"
+  }
+]],
   "env": {
     "utils": {
       "presets": [

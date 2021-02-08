@@ -14,7 +14,7 @@
 export default {
   data() {
     return {
-      time: '12:05:00'
+      time: ''
     }
   }
 }
@@ -36,7 +36,7 @@ export default {
 export default {
   data() {
     return {
-      time: ['12:05:00','12:08:07']
+      time: []
     }
   }
 }
@@ -45,7 +45,7 @@ export default {
 :::
 
 ### 不可选时间
-可以使用 disabled-hours disabled-minutes disabled-seconds 组合禁止用户选择某个时间。
+可以使用 `disabled-hours` `disabled-minutes` `disabled-seconds` 组合禁止用户选择某个时间。
 :::demo
 ```html
 <template>

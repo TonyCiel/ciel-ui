@@ -59,10 +59,8 @@
 <script>
 import timepicker from './timepicker.vue';
 import '../../../examples/utils/timeutils.js';
-import inputPopover from '../../../examples/mixins/inputPopover.js';
 export default {
 	name: 'cielTimePicker',
-	mixins: [inputPopover],
 	components: { timepicker },
 	model: {
 		prop: 'value',
@@ -70,6 +68,12 @@ export default {
 	},
 	props: {
 		value: [String, Array],
+		placeholder: {
+			type: String,
+			default: '请选择时间'
+		},
+		disabled: Boolean,
+		showClear: Boolean,
 		formatValue: {
 			type: String,
 			default: 'HH:mm:ss'
@@ -105,6 +109,7 @@ export default {
 	},
 	data() {
 		return {
+			isshow: false,
 			timeStart: '',
 			timeEnd: '',
 			timeRange: '',
@@ -178,6 +183,9 @@ export default {
 			return list;
 		}
 	},
+	beforeDestroy() {
+		document.removeEventListener('click', this.eventToggle);
+	},
 	methods: {
 		setValue() {
 			let val = this.value;
@@ -217,6 +225,20 @@ export default {
 		inputkeydown(e) {
 			e.preventDefault();
 		},
+		eventToggle(e) {
+			if (this.disabled && !this.isshow) {
+				return;
+			}
+			if (!this.isshow) {
+				return;
+			}
+			var el = this.$refs.selectwrap;
+			var target = e.target;
+			if (el == target || this.$tool.containsElem(el, target)) {
+				return;
+			}
+			this.isshow = false;
+		},
 		clearInput() {
 			this.timeEnd = '';
 			this.timeStart = '';
@@ -231,6 +253,7 @@ export default {
 		this.$nextTick(() => {
 			this.setValue();
 		});
+		document.addEventListener('click', this.eventToggle);
 	}
 };
 </script>

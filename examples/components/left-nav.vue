@@ -40,7 +40,7 @@ export default {
 <style scoped="scoped">
 .nav {
 	height: calc(100vh - 120px);
-	width: 13vw;
+	width: 18vw;
 	margin-left: 40px;
 	border-right: 1px solid #ececec;
 	margin: 30px;

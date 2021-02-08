@@ -20,6 +20,19 @@ const webpackConfig = {
 		modules: false,
 		children: false
 	},
+	devServer: {
+		port: 9001, //本身的端口号
+		proxy: {
+			'/api': {
+				target: 'http://tl.nzjie.cn/api',
+				changeOrigin: true,
+				secure: false,
+				pathRewrite: {
+					'^/api': '/'
+				}
+			}
+		}
+	},
 	serve: {
 		open: true,
 		host: '0.0.0.0',
@@ -60,9 +73,9 @@ const webpackConfig = {
 					fallback: "style-loader", // 编译后用style-loader来渲染css
 					use: [{
 						loader: 'css-loader'
-					},{
+					}, {
 						loader: 'sass-loader'
-					},{
+					}, {
 						loader: 'less-loader'
 					}]
 				})
@@ -102,11 +115,11 @@ const webpackConfig = {
 		}),
 		extractCSS,
 		new webpack.LoaderOptionsPlugin({
-		  vue: {
-		    compilerOptions: {
-		      preserveWhitespace: false
-		    }
-		  }
+			vue: {
+				compilerOptions: {
+					preserveWhitespace: false
+				}
+			}
 		})
 	],
 	optimization: {

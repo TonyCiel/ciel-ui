@@ -1,4 +1,4 @@
-## Filterselect 输入框
+## Filterselect 过滤选择
 通过鼠标或键盘输入来控制选中，清除时可清除对应的item，而不是一段文字
 
 ### 基础用法

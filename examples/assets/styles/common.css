@@ -55,6 +55,15 @@ body {
 	line-height: 60px;
 }
 
+.content>p>code {
+	background-color: #F1F1F1;
+	border: 1px solid #dedede;
+	border-radius: 3px;
+	padding: 2px 5px ;
+	margin: 10px;
+	font-family: monospace;
+}
+
 .content>pre {
 	line-height: 1.8;
 	font-family: Menlo, Monaco, Consolas, Courier, monospace;
@@ -65,6 +74,8 @@ body {
 	margin-bottom: 25px;
 	border-radius: 4px;
 	-webkit-font-smoothing: auto;
+	width: 95%;
+	box-sizing: border-box;
 }
 
 .content>table {
@@ -73,6 +84,20 @@ body {
 	background-color: #fff;
 	font-size: 14px;
 	margin-bottom: 45px;
+	border: 1px solid #dcdfe6;
+	border-radius: 3px;
+}
+.warning {
+	padding: 8px 16px;
+    background-color: #fff6f7;
+    border-radius: 4px;
+    border-left: 5px solid #fe6c6f;
+    margin: 20px 0;
+}
+.warning > p {
+	font-size: 14px;
+    color: #5e6d82;
+	line-height: 40px;
 }
 
 .content>table th {

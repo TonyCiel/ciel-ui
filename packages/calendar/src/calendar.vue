@@ -130,6 +130,7 @@
 </template>
 <script>
 const DEFFORMAT = 'yyyy-MM-dd';
+import '../../../examples/utils/timeutils.js';
 export default {
 	model: {
 		prop: 'value',

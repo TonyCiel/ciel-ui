@@ -1,0 +1,57 @@
+.ciel-editor {
+	position: relative;
+	padding: 0 !important;
+	box-sizing: border-box;
+}
+
+.ciel-editor__atbox {
+	min-width: 120px;
+	overflow: hidden;
+	position: absolute;
+	overflow-y: auto;
+	max-height: 150px;
+	background-color: white;
+	box-sizing: border-box;
+	box-shadow: 1px 1px 3px #b3b3b3, -1px -1px 0px #fdfdfd;
+	user-select: none;
+	z-index: 2;
+}
+
+.ciel-editor__atbox__ater-list {
+	padding: 0;
+	max-height: 250px;
+	overflow: auto;
+	width: calc(100% + 30px);
+}
+
+.ciel-editor__atbox__ater-item {
+	list-style: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.ciel-editor__atbox__ater-item:hover {
+	background-color: #f9f9f9;
+}
+
+.ciel-editor__atbox__ater-item.selected {
+	background-color: #f7f7f7;
+	color: var(--maincolor);
+}
+
+.ciel-editor__atbox__filter {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #efefef;
+	height: 30px;
+	display: block;
+	text-indent: 10px;
+}
+
+.ciel-editor__atbox__ater-item__no-match-remindlist {
+	line-height: 30px;
+	color: #aaa;
+	font-size: 12px;
+	text-indent: 10px;
+}
