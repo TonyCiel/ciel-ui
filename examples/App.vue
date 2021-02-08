@@ -50,7 +50,7 @@ export default {
 @import url('assets/styles/app.css');
 #app {
 	background-color: #f8faff;
-	padding: 2vw;
+	padding: 1vw;
 	box-sizing: border-box;
 	overflow-y: hidden;
 }

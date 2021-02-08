@@ -20,8 +20,8 @@
 	color: #606266;
 	display: inline-block;
 	font-size: inherit;
-	height: 40px;
-	line-height: 40px;
+	height: 34px;
+	line-height: 34px;
 	outline: none;
 	padding: 0 15px;
 	transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
@@ -91,7 +91,7 @@
 .ciel-input__icon {
 	width: 25px;
 	height: 100%;
-	line-height: 40px;
+	line-height: 34px;
 	color: #dcdfe6;
 	cursor: pointer;
 

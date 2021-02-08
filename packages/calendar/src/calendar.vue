@@ -14,12 +14,12 @@
 }
 
 .monthdates {
-	width: 200px;
+	width: 315px;
 }
 
 .dateitem {
 	width: calc(100% / 7 - 2px);
-	line-height: 25px;
+	line-height: 40px;
 	text-align: center;
 	cursor: pointer;
 	margin: 1px;
@@ -76,6 +76,11 @@
 }
 .poniner-handle {
 	cursor: pointer;
+}
+.title {
+	height: 40px;
+	font-size: 16px;
+	line-height: 40px;
 }
 </style>
 

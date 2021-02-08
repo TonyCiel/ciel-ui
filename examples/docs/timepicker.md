@@ -62,7 +62,7 @@ export default {
   data() {
     return {
       time: [],
-	  disabledHours: ['05','08']
+	    disabledHours: ['05','08']
     }
   }
 }
@@ -109,7 +109,7 @@ export default {
 export default {
   data() {
     return {
-      time: '',
+      time: '10:01:08',
     }
   }
 }
