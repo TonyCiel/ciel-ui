@@ -1,0 +1,21 @@
+.ciel-icon-arrow_up {
+	font-size: 16px !important;
+}
+.ciel-select {
+	position: relative;
+}
+.ciel-select__content {
+	width: 100%;
+	height: 0;
+	transition: all .2s;
+	position: absolute;
+	overflow: hidden;
+}
+.ciel-select__content--active {
+	height: 200px;
+	box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+	box-sizing: border-box;
+	background: #fff;
+	border-radius: 4px;
+	overflow-y: auto;
+}

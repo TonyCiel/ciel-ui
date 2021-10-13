@@ -39,11 +39,13 @@ export default {
 
 <style scoped="scoped">
 .nav {
-	height: calc(100vh - 120px);
+	height: calc(100vh - 5vw );
 	width: 16vw;
 	margin-left: 40px;
 	border-right: 1px solid #ececec;
-	margin: 30px;
+	margin: 0 30px;
+	margin-bottom: 0px;
+	margin-top: 30px;
 }
 .nav::-webkit-scrollbar {
 	width: 0;

@@ -29,18 +29,18 @@
 				'ciel-input__inner--group__append': $slots.append,
 				'ciel-input__inner--clear': isShowClear,
 				'ciel-input__inner--prefix': prefixIcon,
-				'ciel-input__inner--suffix': suffixIcon,
+				'ciel-input__inner--suffix': suffixIcon
 			}"
 		/>
 		<div ref="append" class="ciel-input-group__append" v-if="$slots.append"><slot name="append"></slot></div>
-		<span ref="clearIcon" class="ciel-input__clear" @click.stop="clearInput" v-show="isShowClear">
-			<i class="ciel-input__icon ciel-icon-cancel"></i>
+		<span ref="clearIcon" class="ciel-input__clear" @click.stop="clearInput" v-show="isShowClear"><i class="ciel-input__icon ciel-icon-cancel"></i></span>
+		<span ref="suffixIcon" class="ciel-input__suffix-icon" v-if="suffixIcon && !isShowClear">
+			<i class="ciel-input__icon" ref="suffix" :class="[suffixIcon, { 'ciel-input__icon--rotate': focuseRotateIcon }]"></i>
 		</span>
-		<span ref="suffixIcon" class="ciel-input__suffix-icon" v-if="suffixIcon && !isShowClear"><i class="ciel-input__icon" :class="suffixIcon"></i></span>
 		<span ref="eyeIcon" class="ciel-input__suffix-icon" :class="{ 'ciel-input__eye': isShowClear }" v-if="showPassword" @click.stop="passwordVisible = !passwordVisible">
 			<i class="ciel-input__icon ciel-icon-yanjing" style="font-size: 18px;"></i>
 		</span>
-		<div v-if="isWordLimitVisible" class="ciel-input__count">{{value.length + '/' + upperLength}}</div>
+		<div v-if="isWordLimitVisible" class="ciel-input__count">{{ value.length + '/' + upperLength }}</div>
 	</div>
 </template>
 
@@ -65,8 +65,8 @@ export default {
 		prefixIcon: String,
 		showPassword: Boolean,
 		showWordLimit: Boolean,
-		allowSearch: Boolean
-		
+		allowSearch: Boolean,
+		focuseRotateIcon: Boolean
 	},
 	data() {
 		return {
@@ -80,18 +80,13 @@ export default {
 			return this.value === null || this.value === undefined ? '' : String(this.value);
 		},
 		isShowClear() {
-			return this.currentValue && this.showClear && !this.inputDisabled && !this.readonly && (this.hovering || this.focused);
+			return this.currentValue && this.showClear && !this.inputDisabled && (this.hovering || this.focused);
 		},
 		inputDisabled() {
 			return this.disabled;
 		},
 		isWordLimitVisible() {
-			return this.showWordLimit &&
-          this.$attrs.maxlength &&
-          (this.type === 'text') &&
-          !this.inputDisabled &&
-          !this.readonly &&
-          !this.showPassword;
+			return this.showWordLimit && this.$attrs.maxlength && this.type === 'text' && !this.inputDisabled && !this.readonly && !this.showPassword;
 		},
 		upperLength() {
 			return this.$attrs.maxlength;
@@ -102,8 +97,8 @@ export default {
 			let value = event.target.value;
 			this.$emit('change', value);
 			this.$emit('input', value);
-			if(this.allowSearch) {
-				debounce('INPUT_FILTER',this.handleSearch(value), 500)(); // 节流
+			if (this.allowSearch) {
+				debounce('INPUT_FILTER', this.handleSearch(value), 500)(); // 节流
 			}
 		},
 		handleSearch(value) {
@@ -111,10 +106,18 @@ export default {
 		},
 		handleFocus(event) {
 			this.focused = true;
+			if (this.focuseRotateIcon && this.$refs.suffix) {
+				this.$refs.suffix.classList.add('is-rotate');
+			}
 			this.$emit('focus', event);
 		},
 		handleBlur(event) {
 			this.focused = false;
+			if (this.focuseRotateIcon) {
+				if (this.$refs.suffix && this.$refs.suffix.classList.contains('is-rotate')) {
+					this.$refs.suffix.classList.remove('is-rotate');
+				}
+			}
 			this.$emit('blur', event);
 		},
 		setCurrentValue(value) {
@@ -137,32 +140,31 @@ export default {
 			return this.$refs.input;
 		},
 		updateIconPosition() {
-			if(this.$slots.append) {
+			if (this.$slots.append) {
 				let appendWidth = this.$refs.append.clientWidth + 30;
-				if(this.$refs.suffixIcon) {
-					this.$refs.suffixIcon.style.transform = this.$refs.suffixIcon ? 'translateX('+(0-appendWidth)+'px)': '';
+				if (this.$refs.suffixIcon) {
+					this.$refs.suffixIcon.style.transform = this.$refs.suffixIcon ? 'translateX(' + (0 - appendWidth) + 'px)' : '';
 				}
-				if(this.$refs.clearIcon) {
-					this.$refs.clearIcon.style.transform = this.showClear ?  'translateX('+(0-appendWidth)+'px)' : '';
+				if (this.$refs.clearIcon) {
+					this.$refs.clearIcon.style.transform = this.showClear ? 'translateX(' + (0 - appendWidth) + 'px)' : '';
 				}
-				if(this.$refs.eyeIcon) {
-					this.$refs.eyeIcon.style.transform = this.showPassword ?  'translateX('+(0-appendWidth-30)+'px)' : '';
-				}
-			}
-			if(this.$slots.prepend) {
-				let prependWidth = this.$refs.prepend.clientWidth ;
-				if(this.$refs.prefixIcon) {
-					this.$refs.prefixIcon.style.transform = this.$refs.prefixIcon ? 'translateX('+(prependWidth)+'px)' : '';
+				if (this.$refs.eyeIcon) {
+					this.$refs.eyeIcon.style.transform = this.showPassword ? 'translateX(' + (0 - appendWidth - 30) + 'px)' : '';
 				}
 			}
-			
+			if (this.$slots.prepend) {
+				let prependWidth = this.$refs.prepend.clientWidth;
+				if (this.$refs.prefixIcon) {
+					this.$refs.prefixIcon.style.transform = this.$refs.prefixIcon ? 'translateX(' + prependWidth + 'px)' : '';
+				}
+			}
 		}
 	},
 	mounted() {
 		this.setCurrentValue();
 		this.$nextTick(() => {
 			this.updateIconPosition();
-		})
+		});
 	}
 };
 </script>

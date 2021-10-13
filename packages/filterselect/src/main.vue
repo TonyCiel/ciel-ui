@@ -27,7 +27,7 @@
 			ref="pluginArea"
 		>
 			<div v-show="isshow">
-				<div class="ciel-personselect__content__msg" v-show="!filterItems.length">暂无数据</div>
+				<div class="ciel-personselect__content__msg" v-show="!filterItems.length">无匹配数据</div>
 				<div
 					class="ciel-personselect__content__item"
 					:class="{

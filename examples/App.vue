@@ -60,7 +60,7 @@ body {
 .app-content {
 	margin-left: 3vw;
 	padding-top: 3vw;
-	height: calc(100vh - 120px);
+	height: calc(100vh - 5vw);
 	box-sizing: content-box;
 	overflow-y: auto;
 	flex: 1;

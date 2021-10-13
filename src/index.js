@@ -9,6 +9,8 @@ import cielFilterselect from '../packages/filterselect/index.js';
 import cielCalendar from '../packages/calendar/index.js';
 import cielTimePicker from '../packages/timepicker/index.js';
 import cielRichEditor from '../packages/richeditor/index.js';
+import cielSelect from '../packages/select/index.js';
+import cielOption from '../packages/option/index.js';
 import '../examples/assets/styles/toast.css';
 import '../examples/assets/icon/iconfont.css';
 import '../examples/assets/icon/icon.css';
@@ -24,7 +26,9 @@ const components = [
 	cielFilterselect,
 	cielCalendar,
 	cielTimePicker,
-	cielRichEditor
+	cielRichEditor,
+	cielSelect,
+	cielOption
 ];
 
 const install = function(Vue, opts = {}) {
@@ -51,5 +55,7 @@ export default {
 	cielFilterselect,
 	cielCalendar,
 	cielTimePicker,
-	cielRichEditor
+	cielRichEditor,
+	cielSelect,
+	cielOption
 };

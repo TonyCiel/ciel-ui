@@ -81,7 +81,10 @@
 
 .ciel-input__clear {
 	position: absolute;
-	right: 10px;
+	right: 8px;
+	width: 25px;
+	height: 100%;
+	line-height: 34px;
 }
 
 .ciel-input__clear--suffix {
@@ -89,12 +92,22 @@
 }
 
 .ciel-input__icon {
-	width: 25px;
+	/* width: 25px;
 	height: 100%;
-	line-height: 34px;
+	line-height: 34px; */
 	color: #dcdfe6;
 	cursor: pointer;
+	
 
+}
+.ciel-input__icon.ciel-input__icon--rotate {
+	transition: transform .3s;
+	transform: rotate(180deg);
+	display: inline-block;
+}
+
+.ciel-input__icon.is-rotate{
+	transform: rotate(0deg);
 }
 
 .ciel-input__prefix-icon {
@@ -105,11 +118,15 @@
 .ciel-input__suffix-icon {
 	position: absolute;
 	right: 8px;
+	width: 25px;
+	height: 100%;
+	line-height: 34px;
 }
 
 .ciel-input__eye {
 	position: absolute;
 	right: 20px;
+	
 }
 
 .ciel-input-group {

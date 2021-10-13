@@ -5,6 +5,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BuildVersion = require('./setVersion.js');
 
 const webpackConfig = {
 	mode: 'production',
@@ -92,6 +93,7 @@ const webpackConfig = {
 		]
 	},
 	plugins: [
+		new BuildVersion(),
 		new VueLoaderPlugin(),
 		new ProgressBarPlugin(),
 		new HtmlWebpackPlugin({
